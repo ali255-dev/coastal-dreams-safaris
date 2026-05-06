@@ -14,7 +14,143 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bookings: {
+        Row: {
+          created_at: string
+          guests: number
+          id: string
+          payment_status: string
+          status: string
+          total_kes: number
+          tour_id: string
+          travel_date: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          guests?: number
+          id?: string
+          payment_status?: string
+          status?: string
+          total_kes: number
+          tour_id: string
+          travel_date: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          guests?: number
+          id?: string
+          payment_status?: string
+          status?: string
+          total_kes?: number
+          tour_id?: string
+          travel_date?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bookings_tour_id_fkey"
+            columns: ["tour_id"]
+            isOneToOne: false
+            referencedRelation: "tours"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      notifications: {
+        Row: {
+          body: string | null
+          created_at: string
+          id: string
+          read: boolean
+          title: string
+          user_id: string
+        }
+        Insert: {
+          body?: string | null
+          created_at?: string
+          id?: string
+          read?: boolean
+          title: string
+          user_id: string
+        }
+        Update: {
+          body?: string | null
+          created_at?: string
+          id?: string
+          read?: boolean
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
+      tours: {
+        Row: {
+          category: string
+          created_at: string
+          description: string
+          duration_days: number
+          featured: boolean
+          id: string
+          image_url: string | null
+          location: string
+          price_kes: number
+          rating: number | null
+          slug: string
+          title: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description: string
+          duration_days?: number
+          featured?: boolean
+          id?: string
+          image_url?: string | null
+          location: string
+          price_kes: number
+          rating?: number | null
+          slug: string
+          title: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string
+          duration_days?: number
+          featured?: boolean
+          id?: string
+          image_url?: string | null
+          location?: string
+          price_kes?: number
+          rating?: number | null
+          slug?: string
+          title?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
