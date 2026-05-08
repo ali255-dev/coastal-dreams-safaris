@@ -73,7 +73,7 @@ function Index() {
         <div className="flex items-end justify-between mb-8">
           <div>
             <div className="text-xs uppercase tracking-[0.3em] text-accent font-semibold mb-2">Featured Journeys</div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold">The coast, distilled</h2>
+            
           </div>
           <Link to="/tours" className="hidden md:flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">All tours <ArrowRight className="w-4 h-4" /></Link>
         </div>
