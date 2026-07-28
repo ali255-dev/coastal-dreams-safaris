@@ -9,21 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ToursRouteImport } from './routes/tours'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToursIndexRouteImport } from './routes/tours.index'
 import { Route as ToursSlugRouteImport } from './routes/tours.$slug'
 import { Route as PaymentIdRouteImport } from './routes/payment.$id'
 
-const ToursRoute = ToursRouteImport.update({
-  id: '/tours',
-  path: '/tours',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const NotificationsRoute = NotificationsRouteImport.update({
   id: '/notifications',
   path: '/notifications',
@@ -54,10 +49,15 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToursIndexRoute = ToursIndexRouteImport.update({
+  id: '/tours/',
+  path: '/tours/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToursSlugRoute = ToursSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ToursRoute,
+  id: '/tours/$slug',
+  path: '/tours/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const PaymentIdRoute = PaymentIdRouteImport.update({
   id: '/payment/$id',
@@ -72,9 +72,9 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/notifications': typeof NotificationsRoute
-  '/tours': typeof ToursRouteWithChildren
   '/payment/$id': typeof PaymentIdRoute
   '/tours/$slug': typeof ToursSlugRoute
+  '/tours/': typeof ToursIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -83,9 +83,9 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/notifications': typeof NotificationsRoute
-  '/tours': typeof ToursRouteWithChildren
   '/payment/$id': typeof PaymentIdRoute
   '/tours/$slug': typeof ToursSlugRoute
+  '/tours': typeof ToursIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -95,9 +95,9 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/notifications': typeof NotificationsRoute
-  '/tours': typeof ToursRouteWithChildren
   '/payment/$id': typeof PaymentIdRoute
   '/tours/$slug': typeof ToursSlugRoute
+  '/tours/': typeof ToursIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -108,9 +108,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dashboard'
     | '/notifications'
-    | '/tours'
     | '/payment/$id'
     | '/tours/$slug'
+    | '/tours/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -119,9 +119,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dashboard'
     | '/notifications'
-    | '/tours'
     | '/payment/$id'
     | '/tours/$slug'
+    | '/tours'
   id:
     | '__root__'
     | '/'
@@ -130,9 +130,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dashboard'
     | '/notifications'
-    | '/tours'
     | '/payment/$id'
     | '/tours/$slug'
+    | '/tours/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -142,19 +142,13 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DashboardRoute: typeof DashboardRoute
   NotificationsRoute: typeof NotificationsRoute
-  ToursRoute: typeof ToursRouteWithChildren
   PaymentIdRoute: typeof PaymentIdRoute
+  ToursSlugRoute: typeof ToursSlugRoute
+  ToursIndexRoute: typeof ToursIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/tours': {
-      id: '/tours'
-      path: '/tours'
-      fullPath: '/tours'
-      preLoaderRoute: typeof ToursRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/notifications': {
       id: '/notifications'
       path: '/notifications'
@@ -197,12 +191,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tours/': {
+      id: '/tours/'
+      path: '/tours'
+      fullPath: '/tours/'
+      preLoaderRoute: typeof ToursIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tours/$slug': {
       id: '/tours/$slug'
-      path: '/$slug'
+      path: '/tours/$slug'
       fullPath: '/tours/$slug'
       preLoaderRoute: typeof ToursSlugRouteImport
-      parentRoute: typeof ToursRoute
+      parentRoute: typeof rootRouteImport
     }
     '/payment/$id': {
       id: '/payment/$id'
@@ -214,16 +215,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface ToursRouteChildren {
-  ToursSlugRoute: typeof ToursSlugRoute
-}
-
-const ToursRouteChildren: ToursRouteChildren = {
-  ToursSlugRoute: ToursSlugRoute,
-}
-
-const ToursRouteWithChildren = ToursRoute._addFileChildren(ToursRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -231,8 +222,9 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DashboardRoute: DashboardRoute,
   NotificationsRoute: NotificationsRoute,
-  ToursRoute: ToursRouteWithChildren,
   PaymentIdRoute: PaymentIdRoute,
+  ToursSlugRoute: ToursSlugRoute,
+  ToursIndexRoute: ToursIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
