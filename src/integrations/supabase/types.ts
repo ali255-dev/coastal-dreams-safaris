@@ -113,6 +113,7 @@ export type Database = {
           description: string
           duration_days: number
           featured: boolean
+          highlights: Json
           id: string
           image_url: string | null
           location: string
@@ -127,6 +128,7 @@ export type Database = {
           description: string
           duration_days?: number
           featured?: boolean
+          highlights?: Json
           id?: string
           image_url?: string | null
           location: string
@@ -141,6 +143,7 @@ export type Database = {
           description?: string
           duration_days?: number
           featured?: boolean
+          highlights?: Json
           id?: string
           image_url?: string | null
           location?: string

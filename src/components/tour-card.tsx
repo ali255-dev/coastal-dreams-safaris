@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Star, Clock } from "lucide-react";
 
+export type TourHighlight = { name: string; image_url: string; description?: string };
+
 export type Tour = {
   id: string;
   title: string;
@@ -12,6 +14,7 @@ export type Tour = {
   duration_days: number;
   image_url: string | null;
   rating: number | null;
+  highlights?: TourHighlight[] | null;
 };
 
 const imageMap: Record<string, string> = {
@@ -22,7 +25,16 @@ const imageMap: Record<string, string> = {
   "/src/assets/tour-watamu.jpg": new URL("../assets/tour-watamu.jpg", import.meta.url).href,
   "/src/assets/tour-mida.jpg": new URL("../assets/tour-mida.jpg", import.meta.url).href,
   "/src/assets/tour-culture.jpg": new URL("../assets/tour-culture.jpg", import.meta.url).href,
+  "/src/assets/tour-kilifi.jpg": new URL("../assets/tour-kilifi.jpg", import.meta.url).href,
+  "/src/assets/place-wasini.jpg": new URL("../assets/place-wasini.jpg", import.meta.url).href,
+  "/src/assets/place-mnarani-ruins.jpg": new URL("../assets/place-mnarani-ruins.jpg", import.meta.url).href,
+  "/src/assets/place-vidazini-beach.jpg": new URL("../assets/place-vidazini-beach.jpg", import.meta.url).href,
+  "/src/assets/place-mnarani-beach.jpg": new URL("../assets/place-mnarani-beach.jpg", import.meta.url).href,
+  "/src/assets/place-saltys-creek.jpg": new URL("../assets/place-saltys-creek.jpg", import.meta.url).href,
+  "/src/assets/place-kilifi-boat.jpg": new URL("../assets/place-kilifi-boat.jpg", import.meta.url).href,
+  "/src/assets/place-mazingira-park.jpg": new URL("../assets/place-mazingira-park.jpg", import.meta.url).href,
 };
+
 
 export function resolveTourImage(url: string | null) {
   if (!url) return "";
