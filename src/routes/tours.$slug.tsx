@@ -81,7 +81,26 @@ function TourDetail() {
               ))}
             </div>
           </div>
+
+          {tour.highlights && tour.highlights.length > 0 && (
+            <div className="mt-8 bg-card rounded-3xl p-8 shadow-soft border border-border">
+              <div className="text-xs uppercase tracking-[0.3em] text-accent font-semibold mb-2">Places you'll visit</div>
+              <h2 className="font-display text-3xl font-bold mb-6">Curated stops on this journey</h2>
+              <div className="grid sm:grid-cols-2 gap-5">
+                {tour.highlights.map((h) => (
+                  <div key={h.name} className="rounded-2xl overflow-hidden border border-border bg-background">
+                    <img src={resolveTourImage(h.image_url)} alt={h.name} loading="lazy" width={1024} height={768} className="w-full aspect-[4/3] object-cover" />
+                    <div className="p-4">
+                      <h3 className="font-semibold">{h.name}</h3>
+                      {h.description && <p className="text-sm text-muted-foreground mt-1">{h.description}</p>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
+
         <aside className="bg-card rounded-3xl p-6 shadow-glow border border-border h-fit lg:sticky lg:top-24">
           <div className="text-sm text-muted-foreground">From</div>
           <div className="text-3xl font-display font-bold text-primary mb-1">KES {tour.price_kes.toLocaleString()}</div>
