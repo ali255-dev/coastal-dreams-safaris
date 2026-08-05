@@ -75,7 +75,7 @@ function Index() {
             <div className="text-xs uppercase tracking-[0.3em] text-accent font-semibold mb-2">Featured Journeys</div>
             
           </div>
-          <Link to="/tours" className="hidden md:flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">All tours <ArrowRight className="w-4 h-4" /></Link>
+          <Link to="/tours" search={{ q: "", cat: "" }} className="hidden md:flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">All tours <ArrowRight className="w-4 h-4" /></Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {featured.map((t) => <TourCard key={t.id} tour={t} />)}
