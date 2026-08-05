@@ -33,6 +33,12 @@ const imageMap: Record<string, string> = {
   "/src/assets/place-saltys-creek.jpg": new URL("../assets/place-saltys-creek.jpg", import.meta.url).href,
   "/src/assets/place-kilifi-boat.jpg": new URL("../assets/place-kilifi-boat.jpg", import.meta.url).href,
   "/src/assets/place-mazingira-park.jpg": new URL("../assets/place-mazingira-park.jpg", import.meta.url).href,
+  "/src/assets/place-gede-ruins.jpg": new URL("../assets/place-gede-ruins.jpg", import.meta.url).href,
+  "/src/assets/place-mida-creek.jpg": new URL("../assets/place-mida-creek.jpg", import.meta.url).href,
+  "/src/assets/place-garoda-beach.jpg": new URL("../assets/place-garoda-beach.jpg", import.meta.url).href,
+  "/src/assets/place-crab-shack.jpg": new URL("../assets/place-crab-shack.jpg", import.meta.url).href,
+  "/src/assets/place-snake-farm.jpg": new URL("../assets/place-snake-farm.jpg", import.meta.url).href,
+  "/src/assets/place-watamu-marine.jpg": new URL("../assets/place-watamu-marine.jpg", import.meta.url).href,
 };
 
 
