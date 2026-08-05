@@ -44,7 +44,7 @@ function Dashboard() {
         {bookings.length === 0 ? (
           <div className="bg-card border border-border rounded-2xl p-10 text-center">
             <p className="text-muted-foreground mb-4">No bookings yet — your coast story awaits.</p>
-            <Link to="/tours"><Button className="bg-gradient-sunset text-accent-foreground">Browse tours</Button></Link>
+            <Link to="/tours" search={{ q: "", cat: "" }}><Button className="bg-gradient-sunset text-accent-foreground">Browse tours</Button></Link>
           </div>
         ) : (
           <div className="space-y-3">
