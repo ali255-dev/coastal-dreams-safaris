@@ -37,7 +37,7 @@ function ToursPage() {
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="font-display text-5xl font-bold mb-3">Find your coast moment</h1>
           <p className="opacity-90 mb-8">Browse {tours.length || "all"} curated experiences across Kenya's coastline.</p>
-          <form onSubmit={(e) => { e.preventDefault(); nav({ to: "/tours/", search: { q: search, cat: category === "All" ? "" : category } }); }}
+          <form onSubmit={(e) => { e.preventDefault(); nav({ to: "/tours", search: { q: search, cat: category === "All" ? "" : category } }); }}
             className="flex gap-2 p-2 bg-background rounded-2xl shadow-glow max-w-xl">
             <div className="flex items-center pl-3 text-muted-foreground"><Search className="w-5 h-5" /></div>
             <Input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search by name, place..." className="border-0 focus-visible:ring-0 text-foreground bg-transparent" />
@@ -49,7 +49,7 @@ function ToursPage() {
       <section className="max-w-7xl mx-auto px-4 py-10">
         <div className="flex flex-wrap gap-2 mb-8">
           {CATEGORIES.map((c) => (
-            <button key={c} onClick={() => { setCategory(c); nav({ to: "/tours/", search: { q, cat: c === "All" ? "" : c } }); }}
+            <button key={c} onClick={() => { setCategory(c); nav({ to: "/tours", search: { q, cat: c === "All" ? "" : c } }); }}
               className={`px-4 py-2 rounded-full text-sm font-medium transition border ${category === c ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary"}`}>
               {c}
             </button>
