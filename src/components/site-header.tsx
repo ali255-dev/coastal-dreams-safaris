@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "@tanstack/react-router";
-import { Waves, Bell, LogOut, User as UserIcon } from "lucide-react";
+import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
+import { Waves, Bell, LogOut, User as UserIcon, ArrowLeft } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 export function SiteHeader() {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
   const [unread, setUnread] = useState(0);
 
   useEffect(() => {
@@ -24,15 +26,29 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-full bg-gradient-ocean flex items-center justify-center shadow-soft">
-            <Waves className="w-5 h-5 text-primary-foreground" />
-          </div>
-          <div className="leading-tight">
-            <div className="font-display text-lg font-bold tracking-tight">Coastlink</div>
-            <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground -mt-0.5">Safaris</div>
-          </div>
-        </Link>
+        <div className="flex items-center gap-2">
+          {!isHome && (
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Go back"
+              onClick={() => (typeof window !== "undefined" && window.history.length > 1 ? window.history.back() : navigate({ to: "/" }))}
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </Button>
+          )}
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-9 h-9 rounded-full bg-gradient-ocean flex items-center justify-center shadow-soft">
+              <Waves className="w-5 h-5 text-primary-foreground" />
+            </div>
+            <div className="leading-tight">
+              <div className="font-display text-lg font-bold tracking-tight">Coastlink</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground -mt-0.5">Safaris</div>
+            </div>
+          </Link>
+        </div>
+
+
 
         <nav className="hidden md:flex items-center gap-7 text-sm font-medium">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-primary" }} className="hover:text-primary transition">Home</Link>
