@@ -26,7 +26,19 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
+        <div className="flex items-center gap-2">
+          {!isHome && (
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Go back"
+              onClick={() => (typeof window !== "undefined" && window.history.length > 1 ? window.history.back() : navigate({ to: "/" }))}
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </Button>
+          )}
+          <Link to="/" className="flex items-center gap-2 group">
+
           <div className="w-9 h-9 rounded-full bg-gradient-ocean flex items-center justify-center shadow-soft">
             <Waves className="w-5 h-5 text-primary-foreground" />
           </div>
