@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 export function SiteHeader() {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
   const [unread, setUnread] = useState(0);
 
   useEffect(() => {
