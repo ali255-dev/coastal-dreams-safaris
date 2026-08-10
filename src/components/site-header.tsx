@@ -38,15 +38,17 @@ export function SiteHeader() {
             </Button>
           )}
           <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-9 h-9 rounded-full bg-gradient-ocean flex items-center justify-center shadow-soft">
+              <Waves className="w-5 h-5 text-primary-foreground" />
+            </div>
+            <div className="leading-tight">
+              <div className="font-display text-lg font-bold tracking-tight">Coastlink</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground -mt-0.5">Safaris</div>
+            </div>
+          </Link>
+        </div>
 
-          <div className="w-9 h-9 rounded-full bg-gradient-ocean flex items-center justify-center shadow-soft">
-            <Waves className="w-5 h-5 text-primary-foreground" />
-          </div>
-          <div className="leading-tight">
-            <div className="font-display text-lg font-bold tracking-tight">Coastlink</div>
-            <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground -mt-0.5">Safaris</div>
-          </div>
-        </Link>
+
 
         <nav className="hidden md:flex items-center gap-7 text-sm font-medium">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-primary" }} className="hover:text-primary transition">Home</Link>
