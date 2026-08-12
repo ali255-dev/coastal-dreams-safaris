@@ -39,6 +39,12 @@ const imageMap: Record<string, string> = {
   "/src/assets/place-crab-shack.jpg": new URL("../assets/place-crab-shack.jpg", import.meta.url).href,
   "/src/assets/place-snake-farm.jpg": new URL("../assets/place-snake-farm.jpg", import.meta.url).href,
   "/src/assets/place-watamu-marine.jpg": new URL("../assets/place-watamu-marine.jpg", import.meta.url).href,
+  "/src/assets/place-kisite-mpunguti.jpg": new URL("../assets/place-kisite-mpunguti.jpg", import.meta.url).href,
+  "/src/assets/place-sheldrick-falls.jpg": new URL("../assets/place-sheldrick-falls.jpg", import.meta.url).href,
+  "/src/assets/place-kongo-mosque.jpg": new URL("../assets/place-kongo-mosque.jpg", import.meta.url).href,
+  "/src/assets/place-mwaluganje-elephant.jpg": new URL("../assets/place-mwaluganje-elephant.jpg", import.meta.url).href,
+  "/src/assets/place-kaya-kinondo.jpg": new URL("../assets/place-kaya-kinondo.jpg", import.meta.url).href,
+  "/src/assets/place-shimoni-caves.jpg": new URL("../assets/place-shimoni-caves.jpg", import.meta.url).href,
 };
 
 
