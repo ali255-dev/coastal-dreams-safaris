@@ -17,10 +17,12 @@ export type Database = {
       bookings: {
         Row: {
           created_at: string
+          discount_percent: number
           guests: number
           id: string
           payment_status: string
           status: string
+          subtotal_kes: number | null
           total_kes: number
           tour_id: string
           travel_date: string
@@ -28,10 +30,12 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          discount_percent?: number
           guests?: number
           id?: string
           payment_status?: string
           status?: string
+          subtotal_kes?: number | null
           total_kes: number
           tour_id: string
           travel_date: string
@@ -39,10 +43,12 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          discount_percent?: number
           guests?: number
           id?: string
           payment_status?: string
           status?: string
+          subtotal_kes?: number | null
           total_kes?: number
           tour_id?: string
           travel_date?: string
@@ -57,6 +63,30 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      memberships: {
+        Row: {
+          active: boolean
+          id: string
+          joined_at: string
+          tier: string
+          user_id: string
+        }
+        Insert: {
+          active?: boolean
+          id?: string
+          joined_at?: string
+          tier?: string
+          user_id: string
+        }
+        Update: {
+          active?: boolean
+          id?: string
+          joined_at?: string
+          tier?: string
+          user_id?: string
+        }
+        Relationships: []
       }
       notifications: {
         Row: {
