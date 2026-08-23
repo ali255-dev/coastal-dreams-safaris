@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.apply_member_discount() FROM PUBLIC, anon, authenticated;
