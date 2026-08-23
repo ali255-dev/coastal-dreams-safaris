@@ -4,8 +4,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { useAuth } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
-import { Calendar, MapPin, CreditCard } from "lucide-react";
+import { Calendar, MapPin, CreditCard, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useMembership, MEMBER_DISCOUNT_PERCENT } from "@/lib/membership";
 
 export const Route = createFileRoute("/dashboard")({ component: Dashboard });
 
@@ -18,6 +19,7 @@ function Dashboard() {
   const { user, loading } = useAuth();
   const nav = useNavigate();
   const [bookings, setBookings] = useState<Booking[]>([]);
+  const membership = useMembership();
 
   useEffect(() => {
     if (!loading && !user) nav({ to: "/auth" });
@@ -37,6 +39,27 @@ function Dashboard() {
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="font-display text-4xl font-bold">Jambo, {user.email?.split("@")[0]}</h1>
           <p className="opacity-90 mt-1">Your coast journeys, all in one place.</p>
+        </div>
+      </section>
+      <section className="max-w-7xl mx-auto px-4 -mt-8 relative">
+        <div className="bg-card border border-border rounded-2xl p-6 shadow-soft flex flex-wrap items-center gap-4 justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 rounded-full bg-gradient-ocean flex items-center justify-center">
+              <BadgeCheck className="w-6 h-6 text-primary-foreground" />
+            </div>
+            <div>
+              <div className="font-display text-lg font-bold">Coastlink Member</div>
+              <p className="text-sm text-muted-foreground">
+                {membership.discountPercent > 0
+                  ? `${MEMBER_DISCOUNT_PERCENT}% member discount is active on every booking.`
+                  : `Free membership active — ${MEMBER_DISCOUNT_PERCENT}% off unlocks after your first paid trip.`}
+              </p>
+            </div>
+          </div>
+          <div className="text-right">
+            <div className="text-2xl font-display font-bold text-primary">{membership.discountPercent}%</div>
+            <div className="text-xs text-muted-foreground">{membership.paidTrips} paid trip{membership.paidTrips === 1 ? "" : "s"}</div>
+          </div>
         </div>
       </section>
       <section className="max-w-7xl mx-auto px-4 py-10">

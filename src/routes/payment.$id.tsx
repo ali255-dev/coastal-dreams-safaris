@@ -57,6 +57,12 @@ function Payment() {
             <div className="bg-secondary rounded-xl p-4 mb-6">
               <div className="font-semibold">{booking.tours?.title}</div>
               <div className="text-sm text-muted-foreground">{booking.travel_date} · {booking.guests} guests</div>
+              {booking.discount_percent > 0 && (
+                <div className="mt-3 pt-3 border-t text-sm space-y-1">
+                  <div className="flex justify-between text-muted-foreground"><span>Subtotal</span><span className="line-through">KES {(booking.subtotal_kes ?? booking.total_kes).toLocaleString()}</span></div>
+                  <div className="flex justify-between text-primary"><span>Member discount ({booking.discount_percent}%)</span><span>− KES {((booking.subtotal_kes ?? booking.total_kes) - booking.total_kes).toLocaleString()}</span></div>
+                </div>
+              )}
               <div className="mt-3 pt-3 border-t flex justify-between font-bold text-lg"><span>Total</span><span>KES {booking.total_kes.toLocaleString()}</span></div>
             </div>
 
