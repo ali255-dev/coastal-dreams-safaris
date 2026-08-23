@@ -6,7 +6,7 @@ import { resolveTourImage, type Tour } from "@/components/tour-card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { MapPin, Star, Clock, Users, CreditCard } from "lucide-react";
+import { MapPin, Star, Clock, Users, CreditCard, BadgeCheck } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { useMembership, MEMBER_DISCOUNT_PERCENT } from "@/lib/membership";
@@ -29,11 +29,14 @@ export const Route = createFileRoute("/tours/$slug")({
 function TourDetail() {
   const { slug } = Route.useParams();
   const { user } = useAuth();
+  const membership = useMembership();
   const nav = useNavigate();
   const [tour, setTour] = useState<Tour | null>(null);
   const [date, setDate] = useState("");
   const [guests, setGuests] = useState(2);
   const [submitting, setSubmitting] = useState(false);
+  const subtotal = (tour?.price_kes ?? 0) * guests;
+  const memberTotal = Math.round((subtotal * (100 - membership.discountPercent)) / 100);
 
   useEffect(() => {
     supabase.from("tours").select("*").eq("slug", slug).maybeSingle().then(({ data }) => setTour(data as Tour | null));
