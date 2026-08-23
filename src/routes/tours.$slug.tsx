@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { MapPin, Star, Clock, Users, CreditCard } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
+import { useMembership, MEMBER_DISCOUNT_PERCENT } from "@/lib/membership";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/tours/$slug")({
