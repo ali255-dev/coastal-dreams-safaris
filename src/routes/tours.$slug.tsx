@@ -115,10 +115,31 @@ function TourDetail() {
               <Label htmlFor="guests"><Users className="w-3 h-3 inline mr-1" />Guests</Label>
               <Input id="guests" type="number" min={1} max={20} value={guests} onChange={(e) => setGuests(parseInt(e.target.value) || 1)} required />
             </div>
-            <div className="flex justify-between text-sm pt-3 border-t">
-              <span>Total</span>
-              <span className="font-bold text-lg">KES {(tour.price_kes * guests).toLocaleString()}</span>
+            <div className="pt-3 border-t space-y-1 text-sm">
+              <div className="flex justify-between">
+                <span>Subtotal</span>
+                <span className={membership.discountPercent > 0 ? "line-through text-muted-foreground" : "font-bold text-lg"}>
+                  KES {subtotal.toLocaleString()}
+                </span>
+              </div>
+              {membership.discountPercent > 0 && (
+                <>
+                  <div className="flex justify-between text-primary">
+                    <span className="flex items-center gap-1"><BadgeCheck className="w-3.5 h-3.5" />Member discount ({membership.discountPercent}%)</span>
+                    <span>− KES {(subtotal - memberTotal).toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between pt-1">
+                    <span>Total</span>
+                    <span className="font-bold text-lg">KES {memberTotal.toLocaleString()}</span>
+                  </div>
+                </>
+              )}
             </div>
+            {user && membership.isMember && membership.discountPercent === 0 && (
+              <p className="text-xs text-muted-foreground bg-secondary rounded-xl p-3">
+                You're a Coastlink member — {MEMBER_DISCOUNT_PERCENT}% off unlocks on your next booking once this first trip is paid.
+              </p>
+            )}
             <Button type="submit" disabled={submitting} className="w-full bg-gradient-sunset text-accent-foreground hover:opacity-90">
               <CreditCard className="w-4 h-4 mr-2" />{user ? "Book now" : "Sign in to book"}
             </Button>
