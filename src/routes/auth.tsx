@@ -12,7 +12,17 @@ import { toast } from "sonner";
 import { Waves, ArrowLeft } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/auth")({ component: AuthPage });
+export const Route = createFileRoute("/auth")({
+  component: AuthPage,
+  head: () => ({ meta: [
+    { title: "Sign In or Join — Coastlink Safaris" },
+    { name: "description", content: "Sign in or create an account to book and manage your Coastlink Safaris journeys." },
+    { property: "og:title", content: "Sign In or Join — Coastlink Safaris" },
+    { property: "og:description", content: "Access your Coastlink Safaris account and plan a coastal Kenya journey." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
+});
 
 function AuthPage() {
   const nav = useNavigate();

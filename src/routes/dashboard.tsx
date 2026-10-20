@@ -8,7 +8,17 @@ import { Calendar, MapPin, CreditCard, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useMembership, MEMBER_DISCOUNT_PERCENT } from "@/lib/membership";
 
-export const Route = createFileRoute("/dashboard")({ component: Dashboard });
+export const Route = createFileRoute("/dashboard")({
+  component: Dashboard,
+  head: () => ({ meta: [
+    { title: "My Journeys — Coastlink Safaris" },
+    { name: "description", content: "Review your Coastlink Safaris bookings and membership details." },
+    { property: "og:title", content: "My Journeys — Coastlink Safaris" },
+    { property: "og:description", content: "Review your coastal Kenya bookings and Coastlink membership." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
+});
 
 type Booking = {
   id: string; travel_date: string; guests: number; total_kes: number; status: string; payment_status: string;

@@ -16,9 +16,9 @@ export const Route = createFileRoute("/tours/$slug")({
   component: TourDetail,
   head: () => ({
     meta: [
-      { title: "Tour Details — Coastlink Safaris" },
+      { title: "Coastal Tour Details — Coastlink Safaris" },
       { name: "description", content: "See the full itinerary, pricing and availability for this Kenyan coast experience, then book your travel date." },
-      { property: "og:title", content: "Tour Details — Coastlink Safaris" },
+      { property: "og:title", content: "Coastal Tour Details — Coastlink Safaris" },
       { property: "og:description", content: "See the full itinerary, pricing and availability for this Kenyan coast experience." },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -7,7 +7,17 @@ import { supabase } from "@/integrations/supabase/client";
 import { Bell, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export const Route = createFileRoute("/notifications")({ component: Notifications });
+export const Route = createFileRoute("/notifications")({
+  component: Notifications,
+  head: () => ({ meta: [
+    { title: "Notifications — Coastlink Safaris" },
+    { name: "description", content: "See updates about your Coastlink Safaris bookings and coastal journeys." },
+    { property: "og:title", content: "Notifications — Coastlink Safaris" },
+    { property: "og:description", content: "Updates about your bookings and Coastlink Safaris experiences." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
+});
 
 type N = { id: string; title: string; body: string | null; read: boolean; created_at: string };
 

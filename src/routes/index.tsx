@@ -9,7 +9,19 @@ import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
 import heroImg from "@/assets/hero-coast.jpg";
 
-export const Route = createFileRoute("/")({ component: Index });
+export const Route = createFileRoute("/")({
+  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Coastlink Safaris — Kenyan Coast Tours" },
+      { name: "description", content: "Discover coastal Kenya through locally guided journeys, culture, beaches, and nature." },
+      { property: "og:title", content: "Coastlink Safaris — Kenyan Coast Tours" },
+      { property: "og:description", content: "Discover coastal Kenya through locally guided journeys, culture, beaches, and nature." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+});
 
 function Index() {
   const [featured, setFeatured] = useState<Tour[]>([]);
