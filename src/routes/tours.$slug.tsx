@@ -16,9 +16,9 @@ export const Route = createFileRoute("/tours/$slug")({
   component: TourDetail,
   head: () => ({
     meta: [
-      { title: "Tour Details — Coastlink Safaris" },
+      { title: "Coastal Tour Details — Coastlink Safaris" },
       { name: "description", content: "See the full itinerary, pricing and availability for this Kenyan coast experience, then book your travel date." },
-      { property: "og:title", content: "Tour Details — Coastlink Safaris" },
+      { property: "og:title", content: "Coastal Tour Details — Coastlink Safaris" },
       { property: "og:description", content: "See the full itinerary, pricing and availability for this Kenyan coast experience." },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -93,7 +93,13 @@ function TourDetail() {
               <div className="grid sm:grid-cols-2 gap-5">
                 {tour.highlights.map((h) => (
                   <div key={h.name} className="rounded-2xl overflow-hidden border border-border bg-background">
-                    <img src={resolveTourImage(h.image_url)} alt={h.name} loading="lazy" width={1024} height={768} className="w-full aspect-[4/3] object-cover" />
+                     {h.image_url ? (
+                       <img src={resolveTourImage(h.image_url)} alt={h.name} loading="lazy" width={1024} height={768} className="w-full aspect-[4/3] object-cover" />
+                     ) : (
+                       <div aria-label={`${h.name} photo unavailable`} role="img" className="w-full aspect-[4/3] bg-secondary flex items-center justify-center text-primary">
+                         <MapPin className="w-8 h-8" />
+                       </div>
+                     )}
                     <div className="p-4">
                       <h3 className="font-semibold">{h.name}</h3>
                       {h.description && <p className="text-sm text-muted-foreground mt-1">{h.description}</p>}

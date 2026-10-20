@@ -11,7 +11,14 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/tours/")({
   validateSearch: (s: Record<string, unknown>) => ({ q: (s.q as string) ?? "", cat: (s.cat as string) ?? "" }),
   component: ToursPage,
-  head: () => ({ meta: [{ title: "All Tours — Coastlink Safaris" }, { name: "description", content: "Browse all coastal Kenya tours: beaches, culture, adventure, and nature." }] }),
+  head: () => ({ meta: [
+    { title: "All Tours — Coastlink Safaris" },
+    { name: "description", content: "Browse all coastal Kenya tours: beaches, culture, adventure, and nature." },
+    { property: "og:title", content: "All Tours — Coastlink Safaris" },
+    { property: "og:description", content: "Browse coastal Kenya experiences across beaches, culture, adventure, and nature." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+  ] }),
 });
 
 const CATEGORIES = ["All", "Beach", "Culture", "Adventure", "Nature"];

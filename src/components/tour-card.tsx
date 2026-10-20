@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Star, Clock } from "lucide-react";
 
-export type TourHighlight = { name: string; image_url: string; description?: string };
+export type TourHighlight = { name: string; image_url?: string | null; description?: string };
 
 export type Tour = {
   id: string;
@@ -48,7 +48,7 @@ const imageMap: Record<string, string> = {
 };
 
 
-export function resolveTourImage(url: string | null) {
+export function resolveTourImage(url: string | null | undefined) {
   if (!url) return "";
   return imageMap[url] || url;
 }

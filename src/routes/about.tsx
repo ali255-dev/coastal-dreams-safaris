@@ -5,7 +5,14 @@ import cultureImg from "@/assets/tour-culture.jpg";
 
 export const Route = createFileRoute("/about")({
   component: About,
-  head: () => ({ meta: [{ title: "About — Coastlink Safaris" }, { name: "description", content: "Coastlink Safaris connects visitors with the people, culture, and nature of the Kenyan coast." }] }),
+  head: () => ({ meta: [
+    { title: "About Coastlink Safaris — Kenyan Coast Journeys" },
+    { name: "description", content: "Coastlink Safaris connects visitors with the people, culture, and nature of the Kenyan coast." },
+    { property: "og:title", content: "About Coastlink Safaris — Kenyan Coast Journeys" },
+    { property: "og:description", content: "Learn how Coastlink connects travelers with the people, culture, and nature of coastal Kenya." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+  ] }),
 });
 
 function About() {

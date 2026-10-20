@@ -10,7 +10,14 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
-  head: () => ({ meta: [{ title: "Contact — Coastlink Safaris" }, { name: "description", content: "Get in touch with Coastlink Safaris to plan your Kenyan coast journey." }] }),
+  head: () => ({ meta: [
+    { title: "Contact Coastlink Safaris — Plan Your Coast Journey" },
+    { name: "description", content: "Get in touch with Coastlink Safaris to plan your Kenyan coast journey." },
+    { property: "og:title", content: "Contact Coastlink Safaris — Plan Your Coast Journey" },
+    { property: "og:description", content: "Contact Coastlink Safaris to start planning a coastal Kenya experience." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
 });
 
 function Contact() {

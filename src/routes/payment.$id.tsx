@@ -10,7 +10,17 @@ import { useAuth } from "@/lib/auth";
 import { toast } from "sonner";
 import { CreditCard, Lock, CheckCircle2 } from "lucide-react";
 
-export const Route = createFileRoute("/payment/$id")({ component: Payment });
+export const Route = createFileRoute("/payment/$id")({
+  component: Payment,
+  head: () => ({ meta: [
+    { title: "Complete Your Booking — Coastlink Safaris" },
+    { name: "description", content: "Review your Coastlink Safaris booking and complete the simulated checkout." },
+    { property: "og:title", content: "Complete Your Booking — Coastlink Safaris" },
+    { property: "og:description", content: "Review your tour booking details and checkout status." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
+});
 
 function Payment() {
   const { id } = Route.useParams();
