@@ -1,4 +1,4 @@
-# Coastlink Safaris
+# Coastline Adventures
 
 Tours along the Kenyan coast — browse, search, book, pay and get notified.
 

@@ -10,10 +10,10 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/notifications")({
   component: Notifications,
   head: () => ({ meta: [
-    { title: "Notifications — Coastlink Safaris" },
-    { name: "description", content: "See updates about your Coastlink Safaris bookings and coastal journeys." },
-    { property: "og:title", content: "Notifications — Coastlink Safaris" },
-    { property: "og:description", content: "Updates about your bookings and Coastlink Safaris experiences." },
+    { title: "Notifications — Coastline Adventures" },
+    { name: "description", content: "See updates about your Coastline Adventures bookings and coastal journeys." },
+    { property: "og:title", content: "Notifications — Coastline Adventures" },
+    { property: "og:description", content: "Updates about your bookings and Coastline Adventures experiences." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary" },
   ] }),

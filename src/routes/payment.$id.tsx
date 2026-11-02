@@ -13,9 +13,9 @@ import { CreditCard, Lock, CheckCircle2 } from "lucide-react";
 export const Route = createFileRoute("/payment/$id")({
   component: Payment,
   head: () => ({ meta: [
-    { title: "Complete Your Booking — Coastlink Safaris" },
-    { name: "description", content: "Review your Coastlink Safaris booking and complete the simulated checkout." },
-    { property: "og:title", content: "Complete Your Booking — Coastlink Safaris" },
+    { title: "Complete Your Booking — Coastline Adventures" },
+    { name: "description", content: "Review your Coastline Adventures booking and complete the simulated checkout." },
+    { property: "og:title", content: "Complete Your Booking — Coastline Adventures" },
     { property: "og:description", content: "Review your tour booking details and checkout status." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary" },

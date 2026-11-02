@@ -13,9 +13,9 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Coastlink Safaris — Kenyan Coast Tours" },
+      { title: "Coastline Adventures — Kenyan Coast Tours" },
       { name: "description", content: "Discover coastal Kenya through locally guided journeys, culture, beaches, and nature." },
-      { property: "og:title", content: "Coastlink Safaris — Kenyan Coast Tours" },
+      { property: "og:title", content: "Coastline Adventures — Kenyan Coast Tours" },
       { property: "og:description", content: "Discover coastal Kenya through locally guided journeys, culture, beaches, and nature." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
