@@ -25,10 +25,10 @@ export function SiteFooter() {
         </div>
         <div>
           <h4 className="font-semibold mb-3">Contact</h4>
-          <p className="text-sm opacity-80">hello@coastlinksafaris.co.ke<br/>Mombasa, Kenya</p>
+          <p className="text-sm opacity-80">hello@coastlineadventures.co.ke<br/>Mombasa, Kenya</p>
         </div>
       </div>
-      <div className="border-t border-white/10 py-4 text-center text-xs opacity-70">© {new Date().getFullYear()} Coastlink Safaris. Karibu Pwani.</div>
+      <div className="border-t border-white/10 py-4 text-center text-xs opacity-70">© {new Date().getFullYear()} Coastline Adventures. Karibu Pwani.</div>
     </footer>
   );
 }
