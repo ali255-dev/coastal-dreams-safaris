@@ -21,10 +21,10 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Coastlink Safaris — Authentic Kenyan Coast Tours" },
+      { title: "Coastline Adventures — Authentic Kenyan Coast Tours" },
       { name: "description", content: "Discover the magic of Kenya's coast with curated tours through Lamu, Mombasa, Diani, Watamu and Mijikenda culture." },
     ],
-    links: [{ rel: "icon", href: "data:," }, { rel: "preconnect", href: "https://fonts.googleapis.com" }, { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap" }, { rel: "stylesheet", href: appCss }],
+    links: [{ rel: "icon", type: "image/png", href: "/favicon.png" }, { rel: "preconnect", href: "https://fonts.googleapis.com" }, { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap" }, { rel: "stylesheet", href: appCss }],
   }),
   shellComponent: RootShell,
   component: RootComponent,

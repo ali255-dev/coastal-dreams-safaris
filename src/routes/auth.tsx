@@ -9,8 +9,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 import { toast } from "sonner";
-import { Waves, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import coastlineLogo from "@/assets/coastline-adventures-logo.png.asset.json";
 
 export const Route = createFileRoute("/auth")({
   component: AuthPage,
@@ -59,8 +60,8 @@ function AuthPage() {
       <SiteHeader />
       <div className="max-w-md mx-auto px-4 py-16">
         <div className="text-center mb-8">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-ocean mx-auto flex items-center justify-center shadow-glow mb-4"><Waves className="w-7 h-7 text-primary-foreground" /></div>
-          <h1 className="font-display text-3xl font-bold">Welcome to Coastlink</h1>
+          <img src={coastlineLogo.url} alt="Coastline Adventures logo" className="w-28 h-28 mx-auto mb-4" />
+          <h1 className="font-display text-3xl font-bold">Welcome to Coastline Adventures</h1>
           <p className="text-muted-foreground text-sm mt-1">Sign in to book and save your coast journeys.</p>
         </div>
         <div className="relative bg-card border border-border rounded-2xl p-6 shadow-soft">
