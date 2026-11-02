@@ -1,13 +1,15 @@
-import { Waves } from "lucide-react";
+import coastlineLogo from "@/assets/coastline-adventures-logo.png.asset.json";
 
 export function SiteFooter() {
   return (
     <footer className="bg-deep text-primary-foreground mt-24">
       <div className="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-4 gap-8">
         <div>
-          <div className="flex items-center gap-2 mb-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-sunset flex items-center justify-center"><Waves className="w-4 h-4" /></div>
-            <span className="font-display font-bold text-lg">Coastlink Safaris</span>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center p-1">
+              <img src={coastlineLogo.url} alt="Coastline Adventures logo" className="h-full w-auto" />
+            </div>
+            <span className="font-display font-bold text-lg">Coastline Adventures</span>
           </div>
           <p className="text-sm opacity-80">Authentic journeys along Kenya's stunning coast — from Lamu to Diani.</p>
         </div>

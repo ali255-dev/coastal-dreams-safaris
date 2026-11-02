@@ -1,9 +1,10 @@
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
-import { Waves, Bell, LogOut, User as UserIcon, ArrowLeft } from "lucide-react";
+import { Bell, LogOut, User as UserIcon, ArrowLeft } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
+import coastlineLogo from "@/assets/coastline-adventures-logo.png.asset.json";
 
 export function SiteHeader() {
   const { user } = useAuth();
@@ -37,14 +38,8 @@ export function SiteHeader() {
               <ArrowLeft className="w-5 h-5" />
             </Button>
           )}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-full bg-gradient-ocean flex items-center justify-center shadow-soft">
-              <Waves className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <div className="leading-tight">
-              <div className="font-display text-lg font-bold tracking-tight">Coastlink</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground -mt-0.5">Safaris</div>
-            </div>
+          <Link to="/" className="flex items-center group">
+            <img src={coastlineLogo.url} alt="Coastline Adventures" className="h-12 w-auto" />
           </Link>
         </div>
 
