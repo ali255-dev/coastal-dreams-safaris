@@ -11,10 +11,10 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/contact")({
   component: Contact,
   head: () => ({ meta: [
-    { title: "Contact Coastlink Safaris — Plan Your Coast Journey" },
-    { name: "description", content: "Get in touch with Coastlink Safaris to plan your Kenyan coast journey." },
-    { property: "og:title", content: "Contact Coastlink Safaris — Plan Your Coast Journey" },
-    { property: "og:description", content: "Contact Coastlink Safaris to start planning a coastal Kenya experience." },
+    { title: "Contact Coastline Adventures — Plan Your Coast Journey" },
+    { name: "description", content: "Get in touch with Coastline Adventures to plan your Kenyan coast journey." },
+    { property: "og:title", content: "Contact Coastline Adventures — Plan Your Coast Journey" },
+    { property: "og:description", content: "Contact Coastline Adventures to start planning a coastal Kenya experience." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary" },
   ] }),
@@ -29,7 +29,7 @@ function Contact() {
           <h1 className="font-display text-5xl font-bold mb-4">Karibu — let's talk.</h1>
           <p className="text-muted-foreground mb-8">Tell us about the coast journey you're dreaming of.</p>
           <div className="space-y-4 text-sm">
-            <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-primary" />hello@coastlinksafaris.co.ke</div>
+            <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-primary" />hello@coastlineadventures.co.ke</div>
             <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-primary" />+254 700 000 000</div>
             <div className="flex items-center gap-3"><MapPin className="w-5 h-5 text-primary" />Mombasa, Kenya</div>
           </div>

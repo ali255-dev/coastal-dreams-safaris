@@ -11,10 +11,10 @@ import { useMembership, MEMBER_DISCOUNT_PERCENT } from "@/lib/membership";
 export const Route = createFileRoute("/dashboard")({
   component: Dashboard,
   head: () => ({ meta: [
-    { title: "My Journeys — Coastlink Safaris" },
-    { name: "description", content: "Review your Coastlink Safaris bookings and membership details." },
-    { property: "og:title", content: "My Journeys — Coastlink Safaris" },
-    { property: "og:description", content: "Review your coastal Kenya bookings and Coastlink membership." },
+    { title: "My Journeys — Coastline Adventures" },
+    { name: "description", content: "Review your Coastline Adventures bookings and membership details." },
+    { property: "og:title", content: "My Journeys — Coastline Adventures" },
+    { property: "og:description", content: "Review your coastal Kenya bookings and Coastline Adventures membership." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary" },
   ] }),
@@ -58,7 +58,7 @@ function Dashboard() {
               <BadgeCheck className="w-6 h-6 text-primary-foreground" />
             </div>
             <div>
-              <div className="font-display text-lg font-bold">Coastlink Member</div>
+              <div className="font-display text-lg font-bold">Coastline Adventures Member</div>
               <p className="text-sm text-muted-foreground">
                 {membership.discountPercent > 0
                   ? `${MEMBER_DISCOUNT_PERCENT}% member discount is active on every booking.`

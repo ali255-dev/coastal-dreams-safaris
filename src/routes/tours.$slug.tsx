@@ -16,9 +16,9 @@ export const Route = createFileRoute("/tours/$slug")({
   component: TourDetail,
   head: () => ({
     meta: [
-      { title: "Coastal Tour Details — Coastlink Safaris" },
+      { title: "Coastal Tour Details — Coastline Adventures" },
       { name: "description", content: "See the full itinerary, pricing and availability for this Kenyan coast experience, then book your travel date." },
-      { property: "og:title", content: "Coastal Tour Details — Coastlink Safaris" },
+      { property: "og:title", content: "Coastal Tour Details — Coastline Adventures" },
       { property: "og:description", content: "See the full itinerary, pricing and availability for this Kenyan coast experience." },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -146,7 +146,7 @@ function TourDetail() {
             </div>
             {user && membership.isMember && membership.discountPercent === 0 && (
               <p className="text-xs text-muted-foreground bg-secondary rounded-xl p-3">
-                You're a Coastlink member — {MEMBER_DISCOUNT_PERCENT}% off unlocks on your next booking once this first trip is paid.
+                You're a Coastline Adventures member — {MEMBER_DISCOUNT_PERCENT}% off unlocks on your next booking once this first trip is paid.
               </p>
             )}
             <Button type="submit" disabled={submitting} className="w-full bg-gradient-sunset text-accent-foreground hover:opacity-90">
