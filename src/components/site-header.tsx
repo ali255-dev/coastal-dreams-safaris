@@ -39,7 +39,7 @@ export function SiteHeader() {
             </Button>
           )}
           <Link to="/" className="flex items-center group">
-            <img src={coastlineLogo.url} alt="Coastline Adventures" className="h-12 w-auto" />
+            <img src={coastlineLogo.url} alt="Coastline Adventures" className="h-14 w-auto" />
           </Link>
         </div>
 
