@@ -88,9 +88,9 @@
     "vite": "^7.3.1"
   },
   "overrides": {
-    "seroval": "1.5.3"
+    "seroval": "1.6.11"
   },
   "resolutions": {
-    "seroval": "1.5.3"
+    "seroval": "1.6.11"
   }
 }
